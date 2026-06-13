@@ -21,7 +21,15 @@ const Navbar = () => {
           to="/"
           className="text-3xl font-bold tracking-wide"
         >
-          NOCTURNE
+          <div>
+  <h1 className="text-3xl tracking-widest">
+    NOCTURNE
+  </h1>
+
+  <p className="text-[10px] text-zinc-500 uppercase tracking-[4px]">
+    Luxury Exists In The Dark
+  </p>
+</div>
         </Link>
 
         <ul className="flex gap-10">

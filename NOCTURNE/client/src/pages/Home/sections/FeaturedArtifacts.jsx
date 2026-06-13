@@ -1,5 +1,7 @@
 import ArtifactCard from "../../../components/ui/ArtifactCard";
 import SectionTitle from "../../../components/ui/SectionTitle";
+import Container from "../../../components/ui/Container";
+import { featuredProducts } from "../../../constants/products";
 
 const FeaturedArtifacts = () => {
   return (
@@ -10,11 +12,14 @@ const FeaturedArtifacts = () => {
         title="Artifacts"
       />
 
-      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-        <ArtifactCard />
-        <ArtifactCard />
-        <ArtifactCard />
-      </div>
+      <Container className="grid md:grid-cols-3 gap-8">
+        {featuredProducts.map((product) => (
+         <ArtifactCard
+         key={product.id}
+         product={product}
+      />
+))}
+      </Container>
 
     </section>
   );
