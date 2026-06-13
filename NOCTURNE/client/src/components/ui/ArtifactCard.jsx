@@ -9,7 +9,8 @@ const ArtifactCard = ({ product }) => {
       overflow-hidden
       transition-all duration-500
       hover:border-[#C9A227]
-      hover:-translate-y-2
+      hover:-translate-y-4
+      hover:shadow-[0_0_50px_rgba(201,162,39,0.15)]
       "
     >
       {/* Image Area */}
@@ -49,9 +50,9 @@ const ArtifactCard = ({ product }) => {
           {product.title}
         </h3>
 
-        <p className="text-[#C9A227] mt-4">
-          ₹ {product.price.toLocaleString()}
-        </p>
+        <p className="text-zinc-400 mt-4 text-sm">
+  {product.description}
+</p>
 
       </div>
     </div>
