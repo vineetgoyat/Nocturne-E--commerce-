@@ -54,7 +54,7 @@ const ArtifactCard = ({ product }) => {
 
         <div className="p-6">
           <p className="text-zinc-500 text-sm tracking-widest">
-            {product.collection}
+            {product.category}
           </p>
 
           <h3 className="text-2xl mt-2">
