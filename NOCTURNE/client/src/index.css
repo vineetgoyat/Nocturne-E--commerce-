@@ -17,3 +17,8 @@ body,
 body {
   font-family: "Inter", sans-serif;
 }
+
+::selection {
+  background: #c9a227;
+  color: black;
+}

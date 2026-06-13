@@ -6,7 +6,6 @@ export const featuredProducts = [
     collection: "OBSIDIAN",
     description: "Crafted for those who command time.",
   },
-
   {
     id: 2,
     title: "Phantom Jacket",
@@ -14,7 +13,6 @@ export const featuredProducts = [
     collection: "PHANTOM",
     description: "Presence beyond visibility.",
   },
-
   {
     id: 3,
     title: "Void Ring",
