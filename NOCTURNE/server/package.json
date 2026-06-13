@@ -1,15 +1,20 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Nocturne Backend API",
+  "main": "src/server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "mern",
+    "ecommerce",
+    "nocturne"
+  ],
+  "author": "Vineet Goyat",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
     "bcryptjs": "^3.0.3",
