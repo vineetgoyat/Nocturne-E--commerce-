@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
+import Button from "../../../components/ui/Button";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A] text-white">
-
       {/* Glow */}
       <div className="absolute w-[500px] h-[500px] bg-yellow-500/10 blur-[150px] rounded-full" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6">
-
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,20 +33,17 @@ const Hero = () => {
           transition={{ delay: 0.4 }}
           className="max-w-2xl mx-auto mt-8 text-zinc-400 text-lg"
         >
-          Enter a world where luxury is not purchased,
-          it is discovered.
+          Enter a world where luxury is not purchased, it is discovered.
         </motion.p>
 
-        <motion.button
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="mt-10 px-8 py-4 border border-[#C9A227] text-[#C9A227]
-          hover:bg-[#C9A227] hover:text-black transition-all duration-500"
+          className="mt-10"
         >
-          Enter The Collection
-        </motion.button>
-
+          <Button>Enter The Collection</Button>
+        </motion.div>
       </div>
     </section>
   );
