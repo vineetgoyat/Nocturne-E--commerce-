@@ -1,3 +1,43 @@
+import { useState } from "react";
+import axios from "axios";
+
+const [formData, setFormData] = useState({
+  title: "",
+  description: "",
+  price: "",
+  category: "",
+});
+
+const handleChange = (e) => {
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value,
+  });
+};
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    await axios.post(
+      "http://localhost:8000/api/products",
+      formData
+    );
+
+    alert("Artifact Created");
+
+    setFormData({
+      title: "",
+      description: "",
+      price: "",
+      category: "",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
 const CreateProduct = () => {
   return (
     <div className="min-h-screen bg-black text-white p-10">
