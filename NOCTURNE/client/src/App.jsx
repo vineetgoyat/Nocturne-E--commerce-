@@ -1,8 +1,4 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import MainLayout from "./components/layout/MainLayout";
 
@@ -11,21 +7,16 @@ import ProductDetail from "./pages/Product/ProductDetail";
 
 function App() {
   return (
-    <BrowserRouter>
-      <MainLayout>
+    <MainLayout>
+      <Routes>
+        <Route path="/" element={<Home />} />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-
-          <Route
-            path="/artifact/:id"
-            element={<ProductDetail />}
-          />
-
-        </Routes>
-
-      </MainLayout>
-    </BrowserRouter>
+        <Route
+          path="/artifact/:id"
+          element={<ProductDetail />}
+        />
+      </Routes>
+    </MainLayout>
   );
 }
 

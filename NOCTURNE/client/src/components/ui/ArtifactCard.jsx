@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const ArtifactCard = ({ product }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -159,11 +160,11 @@ const ArtifactCard = ({ product }) => {
         />
       </div>
 
-      <ProductModal
+      {/* <ProductModal
         product={product}
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-      />
+      /> */}
     </>
   );
 };

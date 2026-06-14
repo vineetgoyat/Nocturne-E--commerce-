@@ -1,42 +1,65 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const ProductDetail = () => {
   const { id } = useParams();
 
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:8000/api/products/${id}`
+        );
+
+        setProduct(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchProduct();
+  }, [id]);
+
+  if (!product) {
+    return (
+      <div className="text-white text-center py-32">
+        Loading Artifact...
+      </div>
+    );
+  }
+
   return (
     <section className="min-h-screen bg-black text-white px-8 py-32">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
 
-        {/* Image */}
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
 
         <div>
           <img
-            src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=1200"
-            alt="product"
+            src={product.image}
+            alt={product.title}
             className="w-full rounded-3xl"
           />
         </div>
 
-        {/* Content */}
-
         <div>
 
           <p className="uppercase tracking-[6px] text-[#C9A227]">
-            Artifact
+            {product.category}
           </p>
 
           <h1 className="text-6xl mt-4">
-            Phantom Jacket
+            {product.title}
           </h1>
 
           <p className="text-zinc-400 mt-8 leading-relaxed">
-            Crafted for collectors who embrace mystery.
-            Every stitch tells a story.
-            Every detail preserves a legacy.
+            {product.description}
           </p>
 
           <p className="text-[#C9A227] text-4xl mt-10">
-            ₹299
+            ₹ {product.price}
           </p>
 
           <button
@@ -57,6 +80,7 @@ const ProductDetail = () => {
         </div>
 
       </div>
+
     </section>
   );
 };
