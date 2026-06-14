@@ -38,10 +38,13 @@ const ProductDetail = () => {
 
         <div>
           <img
-            src={product.image}
-            alt={product.title}
-            className="w-full rounded-3xl"
-          />
+  src={
+    product.image ||
+    "https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=1200"
+  }
+  alt={product.title}
+  className="w-full rounded-3xl h-[700px] object-cover"
+/>
         </div>
 
         <div>
