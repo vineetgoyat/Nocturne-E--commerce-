@@ -1,3 +1,7 @@
-import cloudinary from "./config/cloudinary.js";
+import dotenv from "dotenv";
 
-console.log(cloudinary.config());
+dotenv.config();
+
+console.log("NAME:", process.env.CLOUDINARY_CLOUD_NAME);
+console.log("KEY:", process.env.CLOUDINARY_API_KEY);
+console.log("SECRET EXISTS:", !!process.env.CLOUDINARY_API_SECRET);
