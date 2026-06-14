@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ProductModal from "./ProductModal";
+import { useNavigate } from "react-router-dom";
 
 const ArtifactCard = ({ product }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,7 +8,7 @@ const ArtifactCard = ({ product }) => {
   return (
     <>
       <div
-        onClick={() => setIsOpen(true)}
+        onClick={() => navigate(`/artifact/${product._id}`)}
         className="
           group
           relative
