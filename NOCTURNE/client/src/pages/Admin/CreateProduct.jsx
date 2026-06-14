@@ -1,12 +1,31 @@
 import { useState } from "react";
 import axios from "axios";
-
+const [image, setImage] = useState(null);{
+    <input
+  type="file"
+  accept="image/*"
+  onChange={(e) => setImage(e.target.files[0])}
+/>
+}
 const [formData, setFormData] = useState({
   title: "",
   description: "",
   price: "",
   category: "",
 });
+
+const uploadImage = async () => {
+  const formData = new FormData();
+
+  formData.append("image", image);
+
+  const res = await axios.post(
+    "http://localhost:8000/api/upload",
+    formData
+  );
+
+  return res.data.imageUrl;
+};
 
 const handleChange = (e) => {
   setFormData({
@@ -19,19 +38,21 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
+    let imageUrl = "";
+
+    if (image) {
+      imageUrl = await uploadImage();
+    }
+
     await axios.post(
       "http://localhost:8000/api/products",
-      formData
+      {
+        ...formData,
+        image: imageUrl,
+      }
     );
 
     alert("Artifact Created");
-
-    setFormData({
-      title: "",
-      description: "",
-      price: "",
-      category: "",
-    });
   } catch (error) {
     console.log(error);
   }
