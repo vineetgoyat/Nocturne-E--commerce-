@@ -5,6 +5,7 @@ const productSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
+      trim: true,
     },
 
     description: {
@@ -24,6 +25,17 @@ const productSchema = new mongoose.Schema(
 
     image: {
       type: String,
+      default: "",
+    },
+
+    featured: {
+      type: Boolean,
+      default: false,
+    },
+
+    stock: {
+      type: Number,
+      default: 1,
     },
   },
   {
