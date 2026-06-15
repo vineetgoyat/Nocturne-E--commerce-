@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
+import Vault from "./pages/Vault/Vault";
+
 import MainLayout from "./components/layout/MainLayout";
 
 import Home from "./pages/Home/Home";
@@ -10,6 +12,7 @@ function App() {
     <MainLayout>
       <Routes>
         <Route path="/" element={<Home />} />
+          <Route path="/vault" element={<Vault />} /> 
 
         <Route
           path="/artifact/:id"
