@@ -1,4 +1,46 @@
+import { useState } from "react";
+import axios from "axios";
+
 const AdminDashboard = () => {
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    price: "",
+    category: "",
+    image: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post(
+        "http://localhost:8000/api/products",
+        formData
+      );
+
+      alert("Artifact Created");
+
+      setFormData({
+        title: "",
+        description: "",
+        price: "",
+        category: "",
+        image: "",
+      });
+    } catch (error) {
+      console.log(error);
+      alert("Failed To Create Artifact");
+    }
+  };
+
   return (
     <section className="min-h-screen bg-black text-white px-8 py-32">
       <div className="max-w-5xl mx-auto">
@@ -20,9 +62,15 @@ const AdminDashboard = () => {
             Create Artifact
           </h2>
 
-          <form className="space-y-6">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6"
+          >
 
             <input
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
               type="text"
               placeholder="Title"
               className="
@@ -36,6 +84,9 @@ const AdminDashboard = () => {
             />
 
             <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
               placeholder="Description"
               className="
                 w-full
@@ -49,6 +100,9 @@ const AdminDashboard = () => {
             />
 
             <input
+              name="price"
+              value={formData.price}
+              onChange={handleChange}
               type="number"
               placeholder="Price"
               className="
@@ -62,8 +116,27 @@ const AdminDashboard = () => {
             />
 
             <input
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
               type="text"
               placeholder="Category"
+              className="
+                w-full
+                bg-black
+                border
+                border-zinc-800
+                p-4
+                rounded-xl
+              "
+            />
+
+            <input
+              name="image"
+              value={formData.image}
+              onChange={handleChange}
+              type="text"
+              placeholder="Image URL"
               className="
                 w-full
                 bg-black
@@ -82,6 +155,8 @@ const AdminDashboard = () => {
                 bg-[#C9A227]
                 text-black
                 rounded-xl
+                hover:opacity-90
+                transition-all
               "
             >
               Create Artifact
