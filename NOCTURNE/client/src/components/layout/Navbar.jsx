@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import useVaultStore from "../../store/useVaultStore";
 
-const Navbar = () => {  
-    const { vaultItems } = useVaultStore();
-
+const Navbar = () => {
+  const { vault } = useVaultStore();
 
   return (
     <header
@@ -22,7 +21,6 @@ const Navbar = () => {
       <nav className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
 
         {/* Logo */}
-
         <Link to="/">
           <div>
             <h1 className="text-3xl tracking-widest text-white">
@@ -36,7 +34,6 @@ const Navbar = () => {
         </Link>
 
         {/* Navigation */}
-
         <ul className="flex gap-10 text-zinc-300">
 
           <li>
@@ -76,7 +73,6 @@ const Navbar = () => {
           </li>
 
         </ul>
-
       </nav>
     </header>
   );
