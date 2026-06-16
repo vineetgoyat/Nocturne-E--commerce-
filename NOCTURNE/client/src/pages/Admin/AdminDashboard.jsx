@@ -1,46 +1,97 @@
-import AdminLayout from "../../components/admin/AdminLayout";
-
 const AdminDashboard = () => {
   return (
-    <AdminLayout>
-      <h1 className="text-5xl font-bold mb-10">
-        The Vault
-      </h1>
+    <section className="min-h-screen bg-black text-white px-8 py-32">
+      <div className="max-w-5xl mx-auto">
 
-      <div className="grid md:grid-cols-3 gap-6">
+        <h1 className="text-6xl mb-12">
+          Admin Dashboard
+        </h1>
 
-        <div className="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
-          <h3 className="text-zinc-500">
-            Total Artifacts
-          </h3>
+        <div
+          className="
+            border
+            border-zinc-800
+            rounded-3xl
+            p-10
+            bg-[#111111]
+          "
+        >
+          <h2 className="text-3xl mb-8">
+            Create Artifact
+          </h2>
 
-          <p className="text-5xl font-bold mt-4">
-            12
-          </p>
-        </div>
+          <form className="space-y-6">
 
-        <div className="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
-          <h3 className="text-zinc-500">
-            Collections
-          </h3>
+            <input
+              type="text"
+              placeholder="Title"
+              className="
+                w-full
+                bg-black
+                border
+                border-zinc-800
+                p-4
+                rounded-xl
+              "
+            />
 
-          <p className="text-5xl font-bold mt-4">
-            5
-          </p>
-        </div>
+            <textarea
+              placeholder="Description"
+              className="
+                w-full
+                bg-black
+                border
+                border-zinc-800
+                p-4
+                rounded-xl
+                h-40
+              "
+            />
 
-        <div className="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
-          <h3 className="text-zinc-500">
-            Revenue
-          </h3>
+            <input
+              type="number"
+              placeholder="Price"
+              className="
+                w-full
+                bg-black
+                border
+                border-zinc-800
+                p-4
+                rounded-xl
+              "
+            />
 
-          <p className="text-5xl font-bold mt-4">
-            ₹0
-          </p>
+            <input
+              type="text"
+              placeholder="Category"
+              className="
+                w-full
+                bg-black
+                border
+                border-zinc-800
+                p-4
+                rounded-xl
+              "
+            />
+
+            <button
+              type="submit"
+              className="
+                px-8
+                py-4
+                bg-[#C9A227]
+                text-black
+                rounded-xl
+              "
+            >
+              Create Artifact
+            </button>
+
+          </form>
         </div>
 
       </div>
-    </AdminLayout>
+    </section>
   );
 };
 
