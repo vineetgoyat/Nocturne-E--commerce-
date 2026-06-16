@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import useVaultStore from "../../store/useVaultStore";
 
 const ProductDetail = () => {
   const { id } = useParams();
 
   const [product, setProduct] = useState(null);
+
+  const { addToVault } = useVaultStore();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -33,18 +36,17 @@ const ProductDetail = () => {
 
   return (
     <section className="min-h-screen bg-black text-white px-8 py-32">
-
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
 
         <div>
           <img
-  src={
-    product.image ||
-    "https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=1200"
-  }
-  alt={product.title}
-  className="w-full rounded-3xl h-[700px] object-cover"
-/>
+            src={
+              product.image ||
+              "https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=1200"
+            }
+            alt={product.title}
+            className="w-full rounded-3xl h-[700px] object-cover"
+          />
         </div>
 
         <div>
@@ -66,6 +68,7 @@ const ProductDetail = () => {
           </p>
 
           <button
+            onClick={() => addToVault(product)}
             className="
               mt-10
               px-8
@@ -81,9 +84,7 @@ const ProductDetail = () => {
           </button>
 
         </div>
-
       </div>
-
     </section>
   );
 };
