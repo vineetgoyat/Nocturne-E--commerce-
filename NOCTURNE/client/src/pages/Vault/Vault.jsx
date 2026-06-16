@@ -1,7 +1,7 @@
 import useVaultStore from "../../store/useVaultStore";
 
 const Vault = () => {
-  const { vault } = useVaultStore();
+  const { vault, removeFromVault } = useVaultStore();
 
   return (
     <section className="min-h-screen bg-black text-white px-8 py-32">
@@ -23,6 +23,7 @@ const Vault = () => {
                 border-zinc-800
                 rounded-2xl
                 overflow-hidden
+                bg-[#111111]
               "
             >
               <img
@@ -32,11 +33,32 @@ const Vault = () => {
               />
 
               <div className="p-5">
-                <h3>{item.title}</h3>
+                <h3 className="text-xl">
+                  {item.title}
+                </h3>
 
                 <p className="text-[#C9A227] mt-2">
                   ₹ {item.price}
                 </p>
+
+                <button
+                  onClick={() => removeFromVault(item._id)}
+                  className="
+                    mt-4
+                    px-4
+                    py-2
+                    border
+                    border-red-500
+                    text-red-500
+                    rounded-xl
+                    hover:bg-red-500
+                    hover:text-white
+                    transition-all
+                  "
+                >
+                  Remove
+                </button>
+
               </div>
             </div>
           ))}

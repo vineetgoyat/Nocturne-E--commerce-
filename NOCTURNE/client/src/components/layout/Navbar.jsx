@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import useVaultStore from "../../store/useVaultStore";
 
-const Navbar = () => {
+const Navbar = () => {  
+    const { vaultItems } = useVaultStore();
+
+
   return (
     <header
       className="
@@ -67,7 +71,7 @@ const Navbar = () => {
               to="/vault"
               className="hover:text-[#C9A227] transition-all"
             >
-              Vault
+              Vault ({vault.length})
             </Link>
           </li>
 
