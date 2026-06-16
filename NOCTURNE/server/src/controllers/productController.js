@@ -43,3 +43,19 @@ export const getProductById = async (req, res) => {
     });
   }
 };
+
+export const deleteProduct = async (req, res) => {
+  try {
+    await Product.findByIdAndDelete(
+      req.params.id
+    );
+
+    res.status(200).json({
+      message: "Product Deleted",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
