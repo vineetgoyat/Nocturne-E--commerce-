@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useEffect } from "react";
 
 const AdminDashboard = () => {
   const [imageFile, setImageFile] = useState(null);
@@ -16,32 +15,32 @@ const AdminDashboard = () => {
   });
 
   const fetchProducts = async () => {
-  try {
-    const res = await axios.get(
-      "http://localhost:8000/api/products"
-    );
+    try {
+      const res = await axios.get(
+        "http://localhost:8000/api/products"
+      );
 
-    setProducts(res.data);
-  } catch (error) {
-    console.log(error);
-  }
-};
+      setProducts(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-useEffect(() => {
-  fetchProducts();
-}, []);
-
-const handleDelete = async (id) => {
-  try {
-    await axios.delete(
-      `http://localhost:8000/api/products/${id}`
-    );
-
+  useEffect(() => {
     fetchProducts();
-  } catch (error) {
-    console.log(error);
-  }
-};
+  }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(
+        `http://localhost:8000/api/products/${id}`
+      );
+
+      fetchProducts();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -69,8 +68,7 @@ const handleDelete = async (id) => {
           imageData
         );
 
-        imageUrl =
-          uploadRes.data.imageUrl;
+        imageUrl = uploadRes.data.imageUrl;
       }
 
       await axios.post(
@@ -82,6 +80,7 @@ const handleDelete = async (id) => {
       );
 
       alert("Artifact Created");
+
       fetchProducts();
 
       setFormData({
@@ -102,11 +101,13 @@ const handleDelete = async (id) => {
 
   return (
     <section className="min-h-screen bg-black text-white px-8 py-32">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
 
         <h1 className="text-6xl mb-12">
           Admin Dashboard
         </h1>
+
+        {/* Create Artifact */}
 
         <div
           className="
@@ -120,7 +121,112 @@ const handleDelete = async (id) => {
           <h2 className="text-3xl mb-8">
             Create Artifact
           </h2>
-          {/* Form for creating artifact can be added here */}
+
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6"
+          >
+            <input
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+              type="text"
+              placeholder="Title"
+              className="
+                w-full
+                bg-black
+                border
+                border-zinc-800
+                p-4
+                rounded-xl
+              "
+            />
+
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              placeholder="Description"
+              className="
+                w-full
+                bg-black
+                border
+                border-zinc-800
+                p-4
+                rounded-xl
+                h-40
+              "
+            />
+
+            <input
+              name="price"
+              value={formData.price}
+              onChange={handleChange}
+              type="number"
+              placeholder="Price"
+              className="
+                w-full
+                bg-black
+                border
+                border-zinc-800
+                p-4
+                rounded-xl
+              "
+            />
+
+            <input
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+              type="text"
+              placeholder="Category"
+              className="
+                w-full
+                bg-black
+                border
+                border-zinc-800
+                p-4
+                rounded-xl
+              "
+            />
+
+            <div>
+              <label className="block mb-2 text-zinc-400">
+                Upload Image
+              </label>
+
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) =>
+                  setImageFile(e.target.files[0])
+                }
+                className="
+                  w-full
+                  bg-black
+                  border
+                  border-zinc-800
+                  p-4
+                  rounded-xl
+                "
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="
+                px-8
+                py-4
+                bg-[#C9A227]
+                text-black
+                rounded-xl
+                hover:opacity-90
+                transition-all
+              "
+            >
+              Create Artifact
+            </button>
+          </form>
         </div>
 
         {/* Manage Artifacts */}
@@ -131,9 +237,7 @@ const handleDelete = async (id) => {
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-
             {products.map((product) => (
-
               <div
                 key={product._id}
                 className="
@@ -151,7 +255,6 @@ const handleDelete = async (id) => {
                 />
 
                 <div className="p-5">
-
                   <h3 className="text-xl">
                     {product.title}
                   </h3>
@@ -179,17 +282,14 @@ const handleDelete = async (id) => {
                   >
                     Delete
                   </button>
-
                 </div>
               </div>
-
             ))}
-
           </div>
         </div>
 
       </div>
-      </section>
+    </section>
   );
 };
 
