@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 
 const AdminDashboard = () => {
+  const [imageFile, setImageFile] = useState(null);
+
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -21,9 +23,31 @@ const AdminDashboard = () => {
     e.preventDefault();
 
     try {
+      let imageUrl = "";
+
+      if (imageFile) {
+        const imageData = new FormData();
+
+        imageData.append(
+          "image",
+          imageFile
+        );
+
+        const uploadRes = await axios.post(
+          "http://localhost:8000/api/upload",
+          imageData
+        );
+
+        imageUrl =
+          uploadRes.data.imageUrl;
+      }
+
       await axios.post(
         "http://localhost:8000/api/products",
-        formData
+        {
+          ...formData,
+          image: imageUrl,
+        }
       );
 
       alert("Artifact Created");
@@ -35,6 +59,9 @@ const AdminDashboard = () => {
         category: "",
         image: "",
       });
+
+      setImageFile(null);
+
     } catch (error) {
       console.log(error);
       alert("Failed To Create Artifact");
@@ -131,21 +158,29 @@ const AdminDashboard = () => {
               "
             />
 
-            <input
-              name="image"
-              value={formData.image}
-              onChange={handleChange}
-              type="text"
-              placeholder="Image URL"
-              className="
-                w-full
-                bg-black
-                border
-                border-zinc-800
-                p-4
-                rounded-xl
-              "
-            />
+            {/* Image Upload */}
+
+            <div>
+              <label className="block mb-2 text-zinc-400">
+                Upload Image
+              </label>
+
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) =>
+                  setImageFile(e.target.files[0])
+                }
+                className="
+                  w-full
+                  border
+                  border-zinc-800
+                  p-4
+                  rounded-xl
+                  bg-black
+                "
+              />
+            </div>
 
             <button
               type="submit"
