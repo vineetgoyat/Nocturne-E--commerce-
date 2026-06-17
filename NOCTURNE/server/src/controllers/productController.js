@@ -59,3 +59,21 @@ export const deleteProduct = async (req, res) => {
     });
   }
 };
+
+export const updateProduct = async (req, res) => {
+  try {
+    const product = await Product.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+      }
+    );
+
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};

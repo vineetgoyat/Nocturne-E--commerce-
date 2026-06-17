@@ -6,6 +6,9 @@ const AdminDashboard = () => {
 
   const [products, setProducts] = useState([]);
 
+  const [editingProduct, setEditingProduct] =
+  useState(null);
+
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -13,6 +16,18 @@ const AdminDashboard = () => {
     category: "",
     image: "",
   });
+
+  const handleEdit = (product) => {
+  setEditingProduct(product);
+
+  setFormData({
+    title: product.title,
+    description: product.description,
+    price: product.price,
+    category: product.category,
+    image: product.image,
+  });
+};
 
   const fetchProducts = async () => {
     try {
@@ -94,9 +109,18 @@ const AdminDashboard = () => {
       setImageFile(null);
 
     } catch (error) {
-      console.log(error);
-      alert("Failed To Create Artifact");
-    }
+  console.log(error);
+
+  console.log(
+    error.response?.data ||
+    error.message
+  );
+
+  alert(
+    error.response?.data?.message ||
+    error.message
+  );
+}
   };
 
   return (
