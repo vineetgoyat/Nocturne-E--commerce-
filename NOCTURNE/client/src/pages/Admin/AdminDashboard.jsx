@@ -130,7 +130,7 @@ const AdminDashboard = () => {
   };
 
   return (
-    <section className="min-h-screen bg-black text-white px-8 py-32">
+    <section className="min-h-screen bg-black text-white px-8 pt-44 pb-20">
       <div className="max-w-6xl mx-auto">
 
         <h1 className="text-6xl mb-12">
