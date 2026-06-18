@@ -7,6 +7,8 @@ const AdminDashboard = () => {
 
   const [products, setProducts] = useState([]);
 
+  const [orders, setOrders] = useState([]);
+
   const [editingProduct, setEditingProduct] =
     useState(null);
 
@@ -37,8 +39,21 @@ const handleLogout = () => {
     }
   };
 
+  const fetchOrders = async () => {
+  try {
+    const res = await axios.get(
+      "http://localhost:8000/api/orders"
+    );
+
+    setOrders(res.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
   useEffect(() => {
     fetchProducts();
+    fetchOrders();
   }, []);
 
   const handleDelete = async (id) => {
