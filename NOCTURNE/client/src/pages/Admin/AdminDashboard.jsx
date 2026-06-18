@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
   const [imageFile, setImageFile] = useState(null);
@@ -16,6 +17,13 @@ const AdminDashboard = () => {
     category: "",
     image: "",
   });
+
+  const navigate = useNavigate();
+
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  navigate("/admin/login");
+};
 
   const fetchProducts = async () => {
     try {
@@ -133,9 +141,28 @@ const AdminDashboard = () => {
     <section className="min-h-screen bg-black text-white px-8 pt-44 pb-20">
       <div className="max-w-6xl mx-auto">
 
-        <h1 className="text-6xl mb-12">
-          Admin Dashboard
-        </h1>
+        <div className="flex justify-between items-center mb-12">
+  <h1 className="text-6xl">
+    Admin Dashboard
+  </h1>
+
+  <button
+    onClick={handleLogout}
+    className="
+      px-6
+      py-3
+      border
+      border-red-500
+      text-red-500
+      rounded-xl
+      hover:bg-red-500
+      hover:text-white
+      transition-all
+    "
+  >
+    Logout
+  </button>
+</div>
 
         {/* Create / Edit Artifact */}
 
