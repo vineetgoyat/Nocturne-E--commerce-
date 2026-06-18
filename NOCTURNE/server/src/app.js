@@ -7,6 +7,8 @@ import productRoutes from "./routes/productRoutes.js";
 
 import authRoutes from "./routes/authRoutes.js";
 
+import orderRoutes from "./routes/orderRoutes.js";
+
 const app = express();
 
 app.use(cors());
@@ -19,5 +21,6 @@ app.get("/", (req, res) => {
 app.use("/api/products", productRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/orders", orderRoutes);
 
 export default app;
