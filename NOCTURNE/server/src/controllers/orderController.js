@@ -25,3 +25,23 @@ export const getOrders = async (req, res) => {
     });
   }
 };
+
+export const updateOrderStatus = async (req, res) => {
+  try {
+    const order = await Order.findByIdAndUpdate(
+      req.params.id,
+      {
+        status: req.body.status,
+      },
+      {
+        new: true,
+      }
+    );
+
+    res.status(200).json(order);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
