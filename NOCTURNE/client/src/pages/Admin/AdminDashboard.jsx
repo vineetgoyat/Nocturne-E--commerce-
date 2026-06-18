@@ -7,7 +7,7 @@ const AdminDashboard = () => {
   const [products, setProducts] = useState([]);
 
   const [editingProduct, setEditingProduct] =
-  useState(null);
+    useState(null);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -16,18 +16,6 @@ const AdminDashboard = () => {
     category: "",
     image: "",
   });
-
-  const handleEdit = (product) => {
-  setEditingProduct(product);
-
-  setFormData({
-    title: product.title,
-    description: product.description,
-    price: product.price,
-    category: product.category,
-    image: product.image,
-  });
-};
 
   const fetchProducts = async () => {
     try {
@@ -57,6 +45,18 @@ const AdminDashboard = () => {
     }
   };
 
+  const handleEdit = (product) => {
+    setEditingProduct(product);
+
+    setFormData({
+      title: product.title,
+      description: product.description,
+      price: product.price,
+      category: product.category,
+      image: product.image,
+    });
+  };
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -68,7 +68,7 @@ const AdminDashboard = () => {
     e.preventDefault();
 
     try {
-      let imageUrl = "";
+      let imageUrl = formData.image;
 
       if (imageFile) {
         const imageData = new FormData();
@@ -83,20 +83,35 @@ const AdminDashboard = () => {
           imageData
         );
 
-        imageUrl = uploadRes.data.imageUrl;
+        imageUrl =
+          uploadRes.data.imageUrl;
       }
 
-      await axios.post(
-        "http://localhost:8000/api/products",
-        {
-          ...formData,
-          image: imageUrl,
-        }
-      );
+      if (editingProduct) {
+        await axios.put(
+          `http://localhost:8000/api/products/${editingProduct._id}`,
+          {
+            ...formData,
+            image: imageUrl,
+          }
+        );
 
-      alert("Artifact Created");
+        alert("Artifact Updated");
+      } else {
+        await axios.post(
+          "http://localhost:8000/api/products",
+          {
+            ...formData,
+            image: imageUrl,
+          }
+        );
+
+        alert("Artifact Created");
+      }
 
       fetchProducts();
+
+      setEditingProduct(null);
 
       setFormData({
         title: "",
@@ -109,18 +124,9 @@ const AdminDashboard = () => {
       setImageFile(null);
 
     } catch (error) {
-  console.log(error);
-
-  console.log(
-    error.response?.data ||
-    error.message
-  );
-
-  alert(
-    error.response?.data?.message ||
-    error.message
-  );
-}
+      console.log(error);
+      alert("Operation Failed");
+    }
   };
 
   return (
@@ -131,7 +137,7 @@ const AdminDashboard = () => {
           Admin Dashboard
         </h1>
 
-        {/* Create Artifact */}
+        {/* Create / Edit Artifact */}
 
         <div
           className="
@@ -143,7 +149,9 @@ const AdminDashboard = () => {
           "
         >
           <h2 className="text-3xl mb-8">
-            Create Artifact
+            {editingProduct
+              ? "Edit Artifact"
+              : "Create Artifact"}
           </h2>
 
           <form
@@ -236,20 +244,54 @@ const AdminDashboard = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              className="
-                px-8
-                py-4
-                bg-[#C9A227]
-                text-black
-                rounded-xl
-                hover:opacity-90
-                transition-all
-              "
-            >
-              Create Artifact
-            </button>
+            <div className="flex items-center">
+              <button
+                type="submit"
+                className="
+                  px-8
+                  py-4
+                  bg-[#C9A227]
+                  text-black
+                  rounded-xl
+                  hover:opacity-90
+                  transition-all
+                "
+              >
+                {editingProduct
+                  ? "Update Artifact"
+                  : "Create Artifact"}
+              </button>
+
+              {editingProduct && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEditingProduct(null);
+
+                    setFormData({
+                      title: "",
+                      description: "",
+                      price: "",
+                      category: "",
+                      image: "",
+                    });
+
+                    setImageFile(null);
+                  }}
+                  className="
+                    ml-4
+                    px-8
+                    py-4
+                    border
+                    border-zinc-700
+                    rounded-xl
+                  "
+                >
+                  Cancel
+                </button>
+              )}
+            </div>
+
           </form>
         </div>
 
@@ -287,25 +329,48 @@ const AdminDashboard = () => {
                     ₹ {product.price}
                   </p>
 
-                  <button
-                    onClick={() =>
-                      handleDelete(product._id)
-                    }
-                    className="
-                      mt-4
-                      px-4
-                      py-2
-                      border
-                      border-red-500
-                      text-red-500
-                      rounded-xl
-                      hover:bg-red-500
-                      hover:text-white
-                      transition-all
-                    "
-                  >
-                    Delete
-                  </button>
+                  <div className="flex gap-3 mt-4">
+
+                    <button
+                      onClick={() =>
+                        handleEdit(product)
+                      }
+                      className="
+                        px-4
+                        py-2
+                        border
+                        border-[#C9A227]
+                        text-[#C9A227]
+                        rounded-xl
+                        hover:bg-[#C9A227]
+                        hover:text-black
+                        transition-all
+                      "
+                    >
+                      Edit
+                    </button>
+
+                    <button
+                      onClick={() =>
+                        handleDelete(product._id)
+                      }
+                      className="
+                        px-4
+                        py-2
+                        border
+                        border-red-500
+                        text-red-500
+                        rounded-xl
+                        hover:bg-red-500
+                        hover:text-white
+                        transition-all
+                      "
+                    >
+                      Delete
+                    </button>
+
+                  </div>
+
                 </div>
               </div>
             ))}
