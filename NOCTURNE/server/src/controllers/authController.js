@@ -33,3 +33,33 @@ export const adminLogin = async (req, res) => {
     });
   }
 };
+
+export const registerUser = async (
+  req,
+  res
+) => {
+  try {
+    res.json({
+      message: "Register Route Working",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+export const loginUser = async (
+  req,
+  res
+) => {
+  try {
+    res.json({
+      message: "Login Route Working",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
