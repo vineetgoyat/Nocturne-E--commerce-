@@ -1,4 +1,7 @@
 import useVaultStore from "../../store/useVaultStore";
+import axios from "axios";
+
+
 
 const Vault = () => {
   const { vault, removeFromVault } = useVaultStore();
