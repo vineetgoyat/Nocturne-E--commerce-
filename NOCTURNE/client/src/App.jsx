@@ -9,10 +9,13 @@ import ProductDetail from "./pages/Product/ProductDetail";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import AdminLogin from "./pages/Admin/AdminLogin";
 
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+
 function App() {
   return (
     <MainLayout>
       <Routes>
+
         <Route
           path="/"
           element={<Home />}
@@ -29,14 +32,19 @@ function App() {
         />
 
         <Route
-          path="/admin"
-          element={<AdminDashboard />}
-        />
-
-        <Route
           path="/admin/login"
           element={<AdminLogin />}
         />
+
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+
       </Routes>
     </MainLayout>
   );
