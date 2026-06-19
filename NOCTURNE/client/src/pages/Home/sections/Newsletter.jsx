@@ -3,58 +3,116 @@ import Button from "../../../components/ui/Button";
 
 const Newsletter = () => {
   return (
-    <section className="py-32">
-
-      <Container>
-
+    <>
+      {/* Background Glow */}
+      <div className="absolute inset-0 flex justify-center">
         <div
           className="
-          bg-[#141414]
-          border border-zinc-800
-          rounded-2xl
-          p-12
-          text-center
+            w-[700px]
+            h-[700px]
+            bg-[#C9A227]/5
+            blur-[220px]
+            rounded-full
+          "
+        />
+      </div>
+
+      <Container>
+        <div
+          className="
+            relative
+            bg-[#111111]
+            border
+            border-zinc-800
+            rounded-[40px]
+            p-16
+            text-center
+            overflow-hidden
           "
         >
-
-          <p className="uppercase tracking-[8px] text-[#C9A227]">
-            Join The Circle
+          <p
+            className="
+              uppercase
+              tracking-[10px]
+              text-[#C9A227]
+              text-sm
+            "
+          >
+            Private Access
           </p>
 
-          <h2 className="text-5xl mt-6">
-            Become A Collector
+          <h2
+            className="
+              text-5xl
+              md:text-7xl
+              mt-8
+              font-light
+            "
+          >
+            Join The Circle
           </h2>
 
-          <p className="text-zinc-400 mt-6 max-w-xl mx-auto">
-            Receive early access to new collections,
-            exclusive artifacts and hidden chapters.
+          <p
+            className="
+              text-zinc-500
+              mt-8
+              max-w-2xl
+              mx-auto
+              text-lg
+              leading-relaxed
+            "
+          >
+            Gain early access to limited releases,
+            private collections and invitation-only
+            acquisitions reserved for Nocturne members.
           </p>
 
-          <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
-
+          <div
+            className="
+              mt-12
+              flex
+              flex-col
+              md:flex-row
+              gap-4
+              justify-center
+              items-center
+            "
+          >
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="collector@nocturne.com"
               className="
-              bg-black
-              border border-zinc-700
-              px-5 py-4
-              rounded-lg
-              w-full md:w-[350px]
+                bg-black
+                border
+                border-zinc-700
+                px-6
+                py-5
+                rounded-2xl
+                w-full
+                md:w-[420px]
+                text-white
+                outline-none
+                focus:border-[#C9A227]
+                transition-all
               "
             />
 
-            <Button>
-              Join
-            </Button>
-
+            <Button>Request Invitation</Button>
           </div>
 
+          <p
+            className="
+              text-zinc-600
+              text-sm
+              mt-8
+              tracking-wide
+            "
+          >
+            Limited membership • Curated releases • Exclusive access
+          </p>
         </div>
-
       </Container>
-
-    </section>
+    </>
   );
 };
 
