@@ -95,7 +95,8 @@ const ArtifactCard = ({ product }) => {
               text-3xl
               text-white
               font-light
-              tracking-wide
+              tracking-[2px]
+              
             "
           >
             {product.title}
