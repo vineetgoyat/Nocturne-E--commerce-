@@ -144,7 +144,7 @@ const ArtifactCard = ({ product }) => {
                 transition-all
               "
             >
-              View Artifact →
+              Explore →
             </span>
           </div>
         </div>
