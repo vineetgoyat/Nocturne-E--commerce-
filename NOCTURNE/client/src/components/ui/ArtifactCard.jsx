@@ -104,7 +104,7 @@ const ArtifactCard = ({ product }) => {
 
           <p
             className="
-              text-zinc-400
+              text-zinc-500
               mt-4
               leading-relaxed
             "
