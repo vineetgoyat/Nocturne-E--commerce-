@@ -22,7 +22,7 @@ const collections = [
 
 const Collections = () => {
   return (
-    <section className="py-32">
+    <section className="py-40 px-6">
       <SectionTitle
         subtitle="Chapters"
         title="Collections"
