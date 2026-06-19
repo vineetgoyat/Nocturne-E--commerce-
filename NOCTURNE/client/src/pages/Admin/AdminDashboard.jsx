@@ -454,7 +454,7 @@ const handleLogout = () => {
   >
     <table className="w-full">
 
-      <thead className="bg-black">
+      <thead className="bg-[#0a0a0a]">
         <tr>
           <th className="p-4 text-left">
             Customer
@@ -489,7 +489,7 @@ const handleLogout = () => {
               {order.customerEmail}
             </td>
 
-            <td className="p-4 text-[#C9A227]">
+            <td className="p-4 font-semibold text-[#C9A227]">
               ₹ {order.totalAmount}
             </td>
 
@@ -503,14 +503,22 @@ const handleLogout = () => {
         e.target.value
       )
     }
-    className="
-      bg-black
-      border
-      border-zinc-700
-      rounded-lg
-      px-3
-      py-2
-    "
+    className={`
+  px-3
+  py-2
+  rounded-lg
+  border
+  ${
+    order.status === "Pending"
+      ? "border-yellow-500 text-yellow-500"
+      : order.status === "Processing"
+      ? "border-blue-500 text-blue-500"
+      : order.status === "Shipped"
+      ? "border-purple-500 text-purple-500"
+      : "border-green-500 text-green-500"
+  }
+  bg-black
+`}
   >
     <option value="Pending">
       Pending
