@@ -49,11 +49,14 @@ const Collections = () => {
           <div
             key={collection.name}
             className="
-            bg-[#141414]
+            bg-[#111111]
             border border-zinc-800
-            p-10
-            min-h-[250px]
-            rounded-xl
+            p-12
+            min-h-[300px]
+            rounded-3xl
+            group
+            relative
+            overflow-hidden
             hover:border-[#C9A227]
             transition-all duration-500
             cursor-pointer
