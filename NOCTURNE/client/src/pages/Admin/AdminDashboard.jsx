@@ -9,6 +9,15 @@ const AdminDashboard = () => {
 
   const [orders, setOrders] = useState([]);
 
+  const totalRevenue = orders.reduce(
+  (acc, order) => acc + order.totalAmount,
+  0
+);
+
+const deliveredOrders = orders.filter(
+  (order) => order.status === "Delivered"
+).length;
+
   const [editingProduct, setEditingProduct] =
     useState(null);
 
