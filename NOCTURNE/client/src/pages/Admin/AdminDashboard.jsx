@@ -183,9 +183,9 @@ const handleLogout = () => {
 
   <section className="min-h-screen bg-black text-white">
 
-    <div className="max-w-7xl mx-auto px-6 pt-48">
+    <div className="max-w-7xl mx-auto px-6">
 
-      <h1 className="text-6xl mb-12">
+      <h1 className="text-5xl mb-12">
 
         Admin Dashboard
 
