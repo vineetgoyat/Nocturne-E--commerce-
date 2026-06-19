@@ -418,6 +418,74 @@ const handleLogout = () => {
             ))}
           </div>
         </div>
+        {/* Orders Management */}
+
+<div className="mt-24">
+  <h2 className="text-4xl mb-8">
+    Customer Orders
+  </h2>
+
+  <div
+    className="
+      border
+      border-zinc-800
+      rounded-3xl
+      overflow-hidden
+      bg-[#111111]
+    "
+  >
+    <table className="w-full">
+
+      <thead className="bg-black">
+        <tr>
+          <th className="p-4 text-left">
+            Customer
+          </th>
+
+          <th className="p-4 text-left">
+            Email
+          </th>
+
+          <th className="p-4 text-left">
+            Amount
+          </th>
+
+          <th className="p-4 text-left">
+            Status
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        {orders.map((order) => (
+          <tr
+            key={order._id}
+            className="border-t border-zinc-800"
+          >
+            <td className="p-4">
+              {order.customerName}
+            </td>
+
+            <td className="p-4">
+              {order.customerEmail}
+            </td>
+
+            <td className="p-4 text-[#C9A227]">
+              ₹ {order.totalAmount}
+            </td>
+
+            <td className="p-4">
+              {order.status}
+            </td>
+          </tr>
+        ))}
+
+      </tbody>
+
+    </table>
+  </div>
+</div>
 
       </div>
     </section>
