@@ -180,7 +180,7 @@ const handleLogout = () => {
   };
 
   return (
-    <section className="min-h-screen bg-black text-white px-8 pt-44 pb-20">
+    <section className="min-h-screen bg-black text-white px-8 pt-40 pb-20">
       <div className="max-w-6xl mx-auto">
 
         <div className="flex justify-between items-center mb-12">
