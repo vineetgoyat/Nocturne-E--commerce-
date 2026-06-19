@@ -62,7 +62,16 @@ const Collections = () => {
             cursor-pointer
             "
           >
-            <h3 className="text-4xl">
+            <h3
+            className="
+              text-4xl
+              font-light
+              tracking-[3px]
+              group-hover:text-[#C9A227]
+              transition-all
+              duration-500
+            "
+          >
               {collection.name}
             </h3>
 
