@@ -56,6 +56,24 @@ const handleLogout = () => {
     fetchOrders();
   }, []);
 
+  const updateOrderStatus = async (
+  orderId,
+  status
+) => {
+  try {
+    await axios.put(
+      `http://localhost:8000/api/orders/${orderId}`,
+      {
+        status,
+      }
+    );
+
+    fetchOrders();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
   const handleDelete = async (id) => {
     try {
       await axios.delete(
@@ -476,8 +494,43 @@ const handleLogout = () => {
             </td>
 
             <td className="p-4">
-              {order.status}
-            </td>
+
+  <select
+    value={order.status}
+    onChange={(e) =>
+      updateOrderStatus(
+        order._id,
+        e.target.value
+      )
+    }
+    className="
+      bg-black
+      border
+      border-zinc-700
+      rounded-lg
+      px-3
+      py-2
+    "
+  >
+    <option value="Pending">
+      Pending
+    </option>
+
+    <option value="Processing">
+      Processing
+    </option>
+
+    <option value="Shipped">
+      Shipped
+    </option>
+
+    <option value="Delivered">
+      Delivered
+    </option>
+
+  </select>
+
+</td>
           </tr>
         ))}
 
