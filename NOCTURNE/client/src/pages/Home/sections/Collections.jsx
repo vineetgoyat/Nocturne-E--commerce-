@@ -27,6 +27,21 @@ const Collections = () => {
         subtitle="Chapters"
         title="Collections"
       />
+      <div className="max-w-3xl mx-auto text-center mb-20">
+
+  <p
+    className="
+      text-zinc-500
+      text-lg
+      leading-relaxed
+    "
+  >
+    Explore curated worlds where craftsmanship,
+    rarity and timeless design converge into
+    collectible luxury.
+  </p>
+
+</div>
 
       <Container className="grid md:grid-cols-2 gap-8">
 
