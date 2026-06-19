@@ -50,6 +50,48 @@ const FeaturedArtifacts = () => {
           subtitle="Featured"
           title="Artifacts"
         />
+        <div className="max-w-4xl mx-auto text-center mt-10 mb-20">
+
+  <p
+    className="
+      uppercase
+      tracking-[8px]
+      text-[#C9A227]
+      text-sm
+      mb-6
+    "
+  >
+    Curated Collection
+  </p>
+
+  <h3
+    className="
+      text-4xl
+      md:text-6xl
+      font-light
+      leading-tight
+      mb-8
+    "
+  >
+    Discover Rare Pieces
+    Crafted For Collectors.
+  </h3>
+
+  <p
+    className="
+      text-zinc-500
+      text-lg
+      leading-relaxed
+      max-w-3xl
+      mx-auto
+    "
+  >
+    Every artifact within Nocturne is chosen for its
+    craftsmanship, heritage and timeless presence.
+    These are not products. They are stories preserved.
+  </p>
+
+</div>
 
         <div className="text-center text-zinc-400 mt-10">
           Loading Artifacts...
@@ -70,7 +112,7 @@ const FeaturedArtifacts = () => {
 
       {/* Search */}
 
-      <div className="max-w-7xl mx-auto mb-10">
+      <div className="max-w-3xl mx-auto mb-10">
 
         <input
           type="text"
@@ -84,8 +126,8 @@ const FeaturedArtifacts = () => {
             bg-[#111111]
             border
             border-zinc-800
-            rounded-2xl
-            p-5
+            rounded-full
+            px-8 py-5
             text-white
             outline-none
             focus:border-[#C9A227]
@@ -139,7 +181,7 @@ const FeaturedArtifacts = () => {
           mb-10
         "
       >
-        Showing {filteredProducts.length} Artifacts
+        {filteredProducts.length} Curated Pieces Available
       </p>
 
       {/* Products */}
@@ -158,7 +200,8 @@ const FeaturedArtifacts = () => {
         <Container
           className="
             grid
-            md:grid-cols-3
+            md:grid-cols-2
+            xl:grid-cols-3
             gap-8
           "
         >
