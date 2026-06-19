@@ -75,7 +75,14 @@ const Collections = () => {
               {collection.name}
             </h3>
 
-            <p className="text-zinc-400 mt-4">
+            <p
+              className="
+                text-zinc-500
+                mt-6
+                text-lg
+                leading-relaxed
+              "
+            >
               {collection.desc}
             </p>
           </div>
