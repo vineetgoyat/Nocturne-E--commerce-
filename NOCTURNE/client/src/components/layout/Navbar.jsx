@@ -18,16 +18,16 @@ const Navbar = () => {
         border-zinc-800
       "
     >
-      <nav className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <nav className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
 
         {/* Logo */}
         <Link to="/">
           <div>
-            <h1 className="text-3xl tracking-widest text-white">
+            <h1 className="text-2xl tracking-widest text-white">
               NOCTURNE
             </h1>
 
-            <p className="text-[10px] text-zinc-500 uppercase tracking-[4px]">
+            <p className="text-[8px] text-zinc-500 uppercase tracking-[4px]">
               Luxury Exists In The Dark
             </p>
           </div>

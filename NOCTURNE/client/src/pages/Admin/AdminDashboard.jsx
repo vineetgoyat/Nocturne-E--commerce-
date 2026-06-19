@@ -180,13 +180,16 @@ const handleLogout = () => {
   };
 
   return (
-    <section className="min-h-screen bg-black text-white px-8 pt-40 pb-20">
-      <div className="max-w-6xl mx-auto">
 
-        <div className="flex justify-between items-center mb-12">
-  <h1 className="text-6xl">
-    Admin Dashboard
-  </h1>
+  <section className="min-h-screen bg-black text-white">
+
+    <div className="max-w-7xl mx-auto px-6 pt-48">
+
+      <h1 className="text-6xl mb-12">
+
+        Admin Dashboard
+
+      </h1>
 
   <div className="grid md:grid-cols-4 gap-6 mb-16">
 
@@ -265,22 +268,22 @@ const handleLogout = () => {
 </div>
 
   <button
-    onClick={handleLogout}
-    className="
-      px-6
-      py-3
-      border
-      border-red-500
-      text-red-500
-      rounded-xl
-      hover:bg-red-500
-      hover:text-white
-      transition-all
-    "
-  >
-    Logout
-  </button>
-</div>
+  onClick={handleLogout}
+  className="
+    px-6
+    py-3
+    border
+    border-red-500
+    text-red-500
+    rounded-xl
+    hover:bg-red-500
+    hover:text-white
+    transition-all
+  "
+>
+  Logout
+</button>
+
 
         {/* Create / Edit Artifact */}
 
@@ -632,8 +635,7 @@ const handleLogout = () => {
     </table>
   </div>
 </div>
-
-      </div>
+</div>
     </section>
   );
 };
