@@ -107,6 +107,8 @@ const ArtifactCard = ({ product }) => {
               text-zinc-500
               mt-4
               leading-relaxed
+              text-sm
+              min-h-[70px]
             "
           >
             {product.description.length > 100
