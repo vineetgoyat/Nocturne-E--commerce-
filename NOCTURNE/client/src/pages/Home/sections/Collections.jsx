@@ -3,20 +3,20 @@ import Container from "../../../components/ui/Container";
 
 const collections = [
   {
-    name: "OBSIDIAN",
-    desc: "Forged in darkness.",
+    name: "TIMEPIECES",
+    desc: "Mechanical masterpieces crafted to transcend generations.",
   },
   {
-    name: "PHANTOM",
-    desc: "Beyond the visible.",
+    name: "LEATHER GOODS",
+    desc: "Hand-finished creations where elegance meets utility.",
   },
   {
-    name: "ECLIPSE",
-    desc: "Where shadows reign.",
+    name: "COLLECTOR'S EDITION",
+    desc: "Rare acquisitions reserved for the most discerning collectors.",
   },
   {
-    name: "VOID",
-    desc: "Silence becomes luxury.",
+    name: "LEGACY OBJECTS",
+    desc: "Artifacts selected for their enduring stories and heritage.",
   },
 ];
 
