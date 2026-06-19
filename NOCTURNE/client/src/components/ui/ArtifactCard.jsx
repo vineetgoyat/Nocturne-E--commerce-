@@ -109,7 +109,9 @@ const ArtifactCard = ({ product }) => {
               leading-relaxed
             "
           >
-            {product.description}
+            {product.description.length > 100
+            ? product.description.slice(0, 100) + "..."
+            : product.description}
           </p>
 
           <div
