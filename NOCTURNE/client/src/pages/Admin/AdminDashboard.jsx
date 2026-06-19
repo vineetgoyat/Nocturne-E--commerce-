@@ -188,6 +188,82 @@ const handleLogout = () => {
     Admin Dashboard
   </h1>
 
+  <div className="grid md:grid-cols-4 gap-6 mb-16">
+
+  <div
+    className="
+      border
+      border-zinc-800
+      rounded-2xl
+      p-6
+      bg-[#111111]
+    "
+  >
+    <p className="text-zinc-500">
+      Revenue
+    </p>
+
+    <h2 className="text-3xl mt-2 text-[#C9A227]">
+      ₹ {totalRevenue}
+    </h2>
+  </div>
+
+  <div
+    className="
+      border
+      border-zinc-800
+      rounded-2xl
+      p-6
+      bg-[#111111]
+    "
+  >
+    <p className="text-zinc-500">
+      Orders
+    </p>
+
+    <h2 className="text-3xl mt-2">
+      {orders.length}
+    </h2>
+  </div>
+
+  <div
+    className="
+      border
+      border-zinc-800
+      rounded-2xl
+      p-6
+      bg-[#111111]
+    "
+  >
+    <p className="text-zinc-500">
+      Products
+    </p>
+
+    <h2 className="text-3xl mt-2">
+      {products.length}
+    </h2>
+  </div>
+
+  <div
+    className="
+      border
+      border-zinc-800
+      rounded-2xl
+      p-6
+      bg-[#111111]
+    "
+  >
+    <p className="text-zinc-500">
+      Delivered
+    </p>
+
+    <h2 className="text-3xl mt-2 text-green-500">
+      {deliveredOrders}
+    </h2>
+  </div>
+
+</div>
+
   <button
     onClick={handleLogout}
     className="
