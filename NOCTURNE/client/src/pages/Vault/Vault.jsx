@@ -31,7 +31,7 @@ const Vault = () => {
   };
 
   return (
-    <section className="min-h-screen bg-black text-white px-8 py-32">
+    <section className="min-h-screen bg-black text-white px-12 lg:px-20 py-32">
       <h1 className="text-6xl mb-12">
         The Vault
       </h1>
