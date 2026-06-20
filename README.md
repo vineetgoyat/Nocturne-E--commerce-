@@ -8,9 +8,9 @@ Nocturne is a premium full-stack luxury e-commerce platform built using the MERN
 
 🚀 Live Demo
 
-Frontend: [Add Vercel URL]
+Frontend: https://nocturne-e-commerce.vercel.app
 
-Backend API: [Add Render URL]
+Backend API: https://nocturne-api-olx7.onrender.com
 
 ⸻
 
