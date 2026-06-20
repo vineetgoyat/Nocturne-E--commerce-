@@ -25,7 +25,7 @@ const Newsletter = () => {
             border
             border-zinc-800
             rounded-[40px]
-            p-16
+            p-20
             text-center
             overflow-hidden
           "
@@ -56,15 +56,17 @@ const Newsletter = () => {
             className="
               text-zinc-500
               mt-8
-              max-w-2xl
+              max-w-3xl
               mx-auto
-              text-lg
-              leading-relaxed
+              text-center
+              text-xl
+              leading-[2]
+              px-4
             "
           >
-            Gain early access to limited releases,
-            private collections and invitation-only
-            acquisitions reserved for Nocturne members.
+            Gain privileged access to limited releases,
+            private collections and invitation-only acquisitions
+            reserved exclusively for Nocturne members.
           </p>
 
           <div
