@@ -69,19 +69,20 @@ const Story = () => {
 
       <p
         className="
-          text-zinc-500
+          text-zinc-400
           max-w-3xl
           mx-auto
-          mt-12
+          mt-10
           text-xl
           leading-relaxed
+          text-center
         "
       >
-        Nocturne was created for collectors who
-        value stories over possessions.
-        Every artifact represents heritage,
-        craftsmanship and permanence in a world
-        obsessed with the temporary.
+              Nocturne was created for collectors who
+              value stories over possessions.
+              Every artifact represents heritage,
+              craftsmanship and permanence in a world
+        o      bsessed with the temporary.
       </p>
 
       <div
