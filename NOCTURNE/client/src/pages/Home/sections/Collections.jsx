@@ -55,8 +55,8 @@ const Collections = () => {
               border
               border-zinc-800
               rounded-3xl
-              p-12
-              min-h-[320px]
+              p-16
+              min-h-[360px]
               cursor-pointer
               transition-all
               duration-700

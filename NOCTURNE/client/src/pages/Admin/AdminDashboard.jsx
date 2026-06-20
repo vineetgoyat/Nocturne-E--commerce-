@@ -184,7 +184,7 @@ const handleLogout = () => {
   // ✅ FIX: Added pt-24 to push content below the fixed navbar
   <section className="min-h-screen bg-black text-white pt-24">
 
-    <div className="max-w-7xl mx-auto px-10 lg:px-16 px-6">
+    <div className="max-w-7xl mx-auto px-10 lg:px-16 pt-56">
 
       <h1 className="text-5xl mb-12">
 

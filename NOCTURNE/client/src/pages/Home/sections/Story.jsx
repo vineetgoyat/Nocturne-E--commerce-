@@ -70,7 +70,7 @@ const Story = () => {
       <p
         className="
           text-zinc-400
-          max-w-3xl
+          max-w-4xl
           mx-auto
           mt-10
           text-xl

@@ -77,10 +77,11 @@ const Manifesto = () => {
 
           <p
             className="
-              max-w-3xl
+              max-w-4xl
               mx-auto
-              mt-14
+              mt-12
               text-zinc-500
+              text-center
               text-xl
               leading-relaxed
             "
