@@ -48,21 +48,35 @@ const Collections = () => {
           <div
             key={collection.name}
             className="
-              group
-              relative
-              overflow-hidden
               bg-[#111111]
-              border
-              border-zinc-800
-              rounded-3xl
+
+              border border-zinc-800
+
               p-16
+
               min-h-[360px]
-              cursor-pointer
+
+              rounded-3xl
+
+              group
+
+              relative
+
+              overflow-hidden
+
+              flex
+
+              flex-col
+
+              justify-center
+
+              hover:-translate-y-3
+
+              hover:shadow-[0_0_60px_rgba(201,162,39,0.15)]
+
               transition-all
+
               duration-700
-              hover:-translate-y-2
-              hover:border-[#C9A227]
-              hover:shadow-[0_0_40px_rgba(201,162,39,0.12)]
             "
           >
             {/* Background Glow */}
